@@ -2,6 +2,8 @@
 
 To Directly Checkout My Project Visit:  https://ajira.herokuapp.com/swagger-ui/
 
+(Note: Heroku Apps Sleep after 30 min of Inactivity. First Hit might take some Time)
+
 To run My Project through Jar
 
 java -jar Marsrover-1.0.0.jar
