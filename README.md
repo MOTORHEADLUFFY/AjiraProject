@@ -1,10 +1,10 @@
 # Getting Started
 
-To Directly Checkout My Project Checkout https://ajira.herokuapp.com/swagger-ui/
+To Directly Checkout My Project Visithttps://ajira.herokuapp.com/swagger-ui/
 
 To run My Project through Jar
 
-java -jar build/libs/Marsrover-1.0.0.jar
+java -jar Marsrover-1.0.0.jar
 
 (through Java 11 JAR)
 
