@@ -146,7 +146,6 @@ public class CommonService {
 				DatabaseService.environmentConfiguration.setStorm(patch.getStorm());
 				if (patch.getStorm()) {
 					for (Scenario scenario : DatabaseService.roverConfiguration.getScenarios()) {
-						System.out.println(scenario.getName());
 						if (checkStorm(scenario.getConditions())) {
 							for (Rover rover : scenario.getRover()) {
 								if (rover.getPerforms() != null) {

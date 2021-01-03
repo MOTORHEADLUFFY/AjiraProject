@@ -4,6 +4,12 @@ plugins {
 	id 'java'
 }
 
+bootJar {
+    baseName = 'Marsrover'
+    version =  '1.0.0'
+    destinationDirectory = file(project.buildDir)
+}
+
 group = 'com.ajira.Marsrover'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '11'
