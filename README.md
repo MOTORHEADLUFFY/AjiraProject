@@ -1,6 +1,6 @@
 # Getting Started
 
-To Directly Checkout My Project Checkout https://ajira.herokuapp.com/swagger-ui/
+To Directly Checkout My Project Visit:  https://ajira.herokuapp.com/swagger-ui/
 
 To run My Project through Jar
 
