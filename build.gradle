@@ -7,7 +7,6 @@ plugins {
 bootJar {
     baseName = 'Marsrover'
     version =  '1.0.0'
-    destinationDirectory = file(project.buildDir)
 }
 
 group = 'com.ajira.Marsrover'
