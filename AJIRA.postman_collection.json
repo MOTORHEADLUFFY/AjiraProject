@@ -1,0 +1,177 @@
+{
+	"info": {
+		"_postman_id": "5e45ac99-a7f6-4caf-ad15-4b68fae9476d",
+		"name": "AJIRA",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://ajira.herokuapp.com/api/environment/resetAll",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ajira.herokuapp.com/api/environment/resetAll",
+					"protocol": "https",
+					"host": [
+						"ajira",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"environment",
+						"resetAll"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ajira.herokuapp.com/api/rover/status",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://ajira.herokuapp.com/api/rover/status",
+					"protocol": "https",
+					"host": [
+						"ajira",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"rover",
+						"status"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ajira.herokuapp.com/api/rover/configure",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"scenarios\": [\r\n        {\r\n            \"name\": \"battery-low\",\r\n            \"conditions\": [\r\n                {\r\n                    \"type\": \"rover\",\r\n                    \"property\": \"battery\",\r\n                    \"operator\": \"lte\",\r\n                    \"value\": 2\r\n                }\r\n            ],\r\n            \"rover\": [\r\n                {\r\n                    \"is\": \"immobile\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"encountering-water\",\r\n            \"conditions\": [\r\n                {\r\n                    \"type\": \"environment\",\r\n                    \"property\": \"terrain\",\r\n                    \"operator\": \"eq\",\r\n                    \"value\": \"water\"\r\n                }\r\n            ],\r\n            \"rover\": [\r\n                {\r\n                    \"performs\": {\r\n                        \"collect-sample\": {\r\n                            \"type\": \"water-sample\",\r\n                            \"qty\": 2\r\n                        }\r\n                    }\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"name\": \"encountering-storm\",\r\n            \"conditions\": [\r\n                {\r\n                    \"type\": \"environment\",\r\n                    \"property\": \"storm\",\r\n                    \"operator\": \"eq\",\r\n                    \"value\": true\r\n                }\r\n            ],\r\n            \"rover\": [\r\n                {\r\n                    \"performs\": {\r\n                        \"item-usage\": {\r\n                            \"type\": \"storm-shield\",\r\n                            \"qty\": 1\r\n                        }\r\n                    }\r\n                }\r\n            ]\r\n        }\r\n    ],\r\n    \"states\": [\r\n        {\r\n            \r\n                \"name\": \"normal\",\r\n                \"allowedActions\": [\r\n                    \"move\",\r\n                    \"collect-sample\"\r\n                ]\r\n            },\r\n            {\r\n                \"name\": \"immobile\",\r\n                \"allowedActions\": [\r\n                    \"collect-sample\"\r\n                ]\r\n            }\r\n        ],\r\n        \"deploy-point\": {\r\n            \"row\": 3,\r\n            \"column\": 1\r\n        },\r\n        \"initial-battery\": 11,\r\n        \"inventory\": [\r\n            {\r\n                \"type\": \"storm-shield\",\r\n                \"quantity\": 1,\r\n                \"priority\": 1\r\n            }\r\n        ]\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ajira.herokuapp.com/api/rover/configure",
+					"protocol": "https",
+					"host": [
+						"ajira",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"rover",
+						"configure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ajira.herokuapp.com/api/environment/configure",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"temperature\": 60,\r\n    \"humidity\": 65,\r\n    \"solar-flare\": false,\r\n    \"storm\": false,\r\n    \"area-map\": [\r\n        [\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"water\",\r\n            \"dirt\"\r\n        ],\r\n        [\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"water\",\r\n            \"dirt\",\r\n            \"water\",\r\n            \"water\"\r\n        ],\r\n        [\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"water\",\r\n            \"dirt\"\r\n        ],\r\n        [\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"dirt\"\r\n        ],\r\n        [\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"dirt\",\r\n            \"dirt\"\r\n        ]\r\n    ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ajira.herokuapp.com/api/environment/configure",
+					"protocol": "https",
+					"host": [
+						"ajira",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"environment",
+						"configure"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ajira.herokuapp.com/api/rover/move",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"direction\":\"down\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ajira.herokuapp.com/api/rover/move",
+					"protocol": "https",
+					"host": [
+						"ajira",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"rover",
+						"move"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "https://ajira.herokuapp.com/api/environment",
+			"request": {
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"storm\": false,\r\n    \"temperature\": 600,\r\n    \"solar-flare\": true\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://ajira.herokuapp.com/api/environment",
+					"protocol": "https",
+					"host": [
+						"ajira",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"api",
+						"environment"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
